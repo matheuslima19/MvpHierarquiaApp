@@ -12,7 +12,6 @@ class UserViewModel : ViewModel() {
         private set
 
     init {
-        // Usuário master fixo (mock)
         val master = Usuario(
             id = 1,
             nome = "Master User",

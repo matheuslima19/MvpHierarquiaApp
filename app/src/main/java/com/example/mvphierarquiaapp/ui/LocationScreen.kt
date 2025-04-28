@@ -5,11 +5,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import com.example.mvphierarquiaapp.viewmodel.UserViewModel
 
 @Composable
-fun LocationScreen(navController: NavHostController, userId: Int, viewModel: UserViewModel) {
+fun LocationScreen(userId: Int, viewModel: UserViewModel) {
     val user = viewModel.getSubordinadosDiretos().find { it.id == userId }
 
     Surface(modifier = Modifier.fillMaxSize()) {

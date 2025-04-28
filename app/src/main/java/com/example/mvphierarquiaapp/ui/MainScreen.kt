@@ -34,14 +34,12 @@ fun MainScreen(navController: NavHostController, viewModel: UserViewModel) {
                             Spacer(Modifier.height(8.dp))
                             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                                 Button(
-//                                    onClick = { navController.navigate("chat/${user.id}") }
-                                            onClick = { navController.navigate("chat") }
+                                 onClick = { navController.navigate("chat/${user.id}") }
                                 ) {
                                     Text("Chat")
                                 }
                                 Button(
-//                                    onClick = { navController.navigate("location/${user.id}") }
-                                            onClick = { navController.navigate("location") }
+                                 onClick = { navController.navigate("location/${user.id}") }
                                 ) {
                                     Text("Localização")
                                 }

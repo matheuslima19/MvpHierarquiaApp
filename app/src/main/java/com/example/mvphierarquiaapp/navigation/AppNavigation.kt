@@ -14,7 +14,7 @@ import com.example.mvphierarquiaapp.viewmodel.UserViewModel
 
 @Composable
 fun AppNavigation(navController: NavHostController) {
-    val viewModel = UserViewModel() // Cria uma instância mockada no navigation
+    val viewModel = UserViewModel()
 
     NavHost(
         navController = navController,
@@ -29,21 +29,13 @@ fun AppNavigation(navController: NavHostController) {
         composable("register") {
             RegisterScreen(navController = navController, viewModel = viewModel)
         }
-        composable("chat") {
-            ChatScreen(navController = navController, userId = 1, viewModel = viewModel)
+        composable("chat/{userId}") { backStackEntry ->
+            val userId = backStackEntry.arguments?.getString("userId")?.toInt() ?: 0
+            ChatScreen(userId, viewModel)
         }
-        composable("location") {
-            LocationScreen(navController = navController, userId = 1, viewModel = viewModel)
+        composable("location/{userId}") { backStackEntry ->
+            val userId = backStackEntry.arguments?.getString("userId")?.toInt() ?: 0
+            LocationScreen(userId, viewModel)
         }
-//        composable("chat/{userId}") { backStackEntry ->
-//            val userId = backStackEntry.arguments?.getString("userId")
-//            // Aqui você pode passar o userId para a tela de chat
-//            // ChatScreen(userId = userId, navController = navController)
-//        }
-//        composable("location/{userId}") { backStackEntry ->
-//            val userId = backStackEntry.arguments?.getString("userId")
-//            // Aqui você pode passar o userId para a tela de localização
-//            // LocationScreen(userId = userId, navController = navController)
-//        }
     }
 }
